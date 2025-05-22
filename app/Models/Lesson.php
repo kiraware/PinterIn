@@ -16,7 +16,20 @@ class Lesson extends Model
         'course_id',
         'title',
         'content',
+        'duration',
     ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'duration' => 'integer',
+        ];
+    }
 
     public function course(): BelongsTo
     {

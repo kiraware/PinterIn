@@ -44,4 +44,9 @@ class Course extends Model
     {
         return $this->belongsToMany(User::class, 'enrollments');
     }
+
+    public function getDurationAttribute(): int
+    {
+        return $this->lessons()->sum('duration');
+    }
 }
