@@ -27,13 +27,13 @@
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Are you sure?')" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Delete</button>
                     </form>
-                    <a href=" route('lessons.create', ['course' => $course->id]) " class="ml-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Lesson</a>
+                    <a href="{{ route('courses.lessons.create', $course) }}" class="ml-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Lesson</a>
                 </div>
             @endif
 
             <div class="mt-8 space-y-4">
                 @foreach($course->lessons as $index => $lesson)
-                    <a href=" route('lessons.show', $lesson) " class="block bg-yellow-400 dark:bg-yellow-600 hover:brightness-110 transition rounded-lg p-4 text-white shadow-md">
+                    <a href="{{ route('courses.lessons.show', [$course, $lesson]) }}" class="block bg-yellow-400 dark:bg-yellow-600 hover:brightness-110 transition rounded-lg p-4 text-white shadow-md">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-lg font-bold">
