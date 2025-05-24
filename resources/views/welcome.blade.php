@@ -76,7 +76,7 @@
                                 <span class="text-lg font-bold text-indigo-600 dark:text-indigo-400">
                                     ${{ number_format($course->price, 2) }}
                                 </span>
-                                <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-500 text-sm">
+                                <a href="{{ route('courses.show', $course) }}" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-500 text-sm">
                                     View
                                 </a>
                             </div>
