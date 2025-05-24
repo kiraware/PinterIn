@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\LessonDifficulty;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -16,6 +17,7 @@ class Lesson extends Model
         'course_id',
         'title',
         'content',
+        'difficulty',
         'duration',
     ];
 
@@ -28,6 +30,7 @@ class Lesson extends Model
     {
         return [
             'duration' => 'integer',
+            'difficulty' => LessonDifficulty::class,
         ];
     }
 
