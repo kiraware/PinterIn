@@ -23,7 +23,7 @@
     <header class="w-full h-20 flex items-center justify-between px-4 lg:px-8 bg-[#1B1B1B] text-[#EDEDEC] fixed top-0 left-0 z-50 shadow-md">
         <div class="flex items-center gap-2">
             {{-- Logo Pinterin --}}
-            <img src="{{ asset('storage/Logo.png') }}" alt="Pinterin Logo" class=" h-16 w-auto object-contain"> {{-- Ganti dengan path logo Anda --}}
+            <img src="{{ asset('images/logo.png') }}" alt="Pinterin Logo" class=" h-16 w-auto object-contain"> {{-- Ganti dengan path logo Anda --}}
         </div>
 
         {{-- Navigasi Tengah --}}
@@ -103,7 +103,7 @@
             {{-- Kolom 1: Logo dan Deskripsi Singkat --}}
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="{{ asset('storage/Logo.png') }}" alt="Pinterin Logo" class="h-16 w-auto object-contain">
+                    <img src="{{ asset('images/logo.png') }}" alt="Pinterin Logo" class="h-16 w-auto object-contain">
                 </div>
                 <p class="text-sm text-gray-400 mb-4">
                     Pinterin adalah platform edukasi online terkemuka yang menyediakan kursus berkualitas untuk meningkatkan keahlian Anda.
