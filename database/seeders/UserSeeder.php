@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@pinterin.com',
             'password' => Hash::make(env('APP_KEY')),
             'is_admin' => true,
+            'email_verified_at' => now(),
         ]);
     }
 }
