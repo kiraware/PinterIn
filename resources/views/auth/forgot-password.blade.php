@@ -11,7 +11,7 @@
 
             <!-- Left: Logo & Brand -->
             <div class="w-1/2 flex flex-col items-center justify-center p-10 ">
-                <img src="{{ asset('images/logo.png') }}" alt="Pinterin Logo" class="w-[230px] mx-auto mb-4">
+                <img src="{{ asset('images/logo 2.png') }}" alt="Pinterin Logo" class="w-[230px] mx-auto mb-4">
             </div>
 
             <!-- Right: Forgot Password Form -->
@@ -32,7 +32,7 @@
                     <div class="mb-4">
                         <input id="email" type="email" name="email" :value="old('email')" required autofocus
                             placeholder="Enter your Email"
-                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-500 text-sm" />
                     </div>
 

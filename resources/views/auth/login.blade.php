@@ -4,7 +4,7 @@
 
             <!-- Left: Logo & Brand -->
             <div class="w-1/2 flex flex-col items-center justify-center p-10">
-                <img src="{{ asset('images/logo.png') }}" alt="Pinterin Logo" class="w-[230px] mx-auto mb-4">
+                <img src="{{ asset('images/logo 2.png') }}" alt="Pinterin Logo" class="w-[230px] mx-auto mb-4">
             </div>
 
             <!-- Right: Login Form -->
@@ -22,7 +22,7 @@
                         <label for="email" class="block text-sm font-semibold mb-1">Email</label>
                         <input id="email" type="email" placeholder="Enter your Email" name="email" value="{{ old('email') }}"
                             required autofocus autocomplete="username"
-                            class=" text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-500 text-sm" />
                     </div>
 

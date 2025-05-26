@@ -12,7 +12,7 @@
 
             <!-- Left: Logo -->
             <div class="w-1/2 flex flex-col items-center justify-center p-10 ">
-                <img src="{{ asset('images/logo.png') }}" alt="Pinterin Logo" class="w-[230px] mx-auto mb-4">
+                <img src="{{ asset('images/logo 2.png') }}" alt="Pinterin Logo" class="w-[230px] mx-auto mb-4">
             </div>
 
             <!-- Right: Message -->
