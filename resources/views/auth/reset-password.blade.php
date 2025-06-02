@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#272A31] to-[#101015]">
+    <div class="min-h-screen flex items-center justify-center bg-linear-to-br from-[#272A31] to-[#101015]">
         <div class="flex text-white overflow-hidden w-full max-w-4xl">
             <!-- back button -->
             <a href="{{ route('login') }}"
