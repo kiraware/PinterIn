@@ -14,27 +14,37 @@
 
                         <div class="mb-4">
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
-                            <input type="text" name="title" class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                            <input type="text" name="title"
+                                class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white"
+                                required>
                         </div>
 
                         <div class="mb-4">
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
-                            <textarea name="description" rows="4" class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white" required></textarea>
+                            <label
+                                class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
+                            <textarea name="description" rows="4"
+                                class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white" required></textarea>
                         </div>
 
                         <div class="mb-4">
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Price (USD)</label>
-                            <input type="number" step="0.01" name="price" class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Price
+                                (USD)</label>
+                            <input type="number" step="0.01" name="price"
+                                class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white"
+                                required>
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Thumbnail</label>
-                            <input type="file" name="thumbnail" accept="image/*" class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white">
+                            <input type="file" name="thumbnail" accept="image/*"
+                                class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white">
                         </div>
 
                         <div class="flex justify-end">
-                            <a href="{{ route('courses.index') }}" class="mr-4 text-sm text-gray-600 dark:text-gray-400 hover:underline">Cancel</a>
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Create</button>
+                            <a href="{{ route('courses.index') }}"
+                                class="mr-4 text-sm text-gray-600 dark:text-gray-400 hover:underline">Cancel</a>
+                            <button type="submit"
+                                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Create</button>
                         </div>
                     </form>
                 </div>
