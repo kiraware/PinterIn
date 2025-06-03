@@ -40,7 +40,7 @@
                     <div class="mb-4">
                         <input id="password" type="password" name="password" required autocomplete="new-password"
                             placeholder="Enter Password"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('password')" class="mt-1 text-red-500 text-sm" />
                     </div>
 
@@ -48,7 +48,7 @@
                     <div class="mb-4">
                         <input id="password_confirmation" type="password" name="password_confirmation" required
                             autocomplete="new-password" placeholder="Confirm Password"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-1 text-red-500 text-sm" />
                     </div>
 

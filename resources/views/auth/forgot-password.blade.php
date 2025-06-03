@@ -34,7 +34,7 @@
                     <div class="mb-4">
                         <input id="email" type="email" name="email" :value="old('email')" required autofocus
                             placeholder="Enter your Email"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-500 text-sm" />
                     </div>
 
