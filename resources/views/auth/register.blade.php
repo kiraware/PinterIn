@@ -20,7 +20,7 @@
                                 class="text-red-500">*</span></label>
                         <input id="name" type="text" placeholder="Enter your full Name" name="name"
                             value="{{ old('name') }}" required autofocus autocomplete="name"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('name')" class="mt-1 text-red-500 text-sm" />
                     </div>
 
@@ -30,7 +30,7 @@
                                 class="text-red-500">*</span></label>
                         <input id="email" type="email" placeholder="Enter your Email" name="email"
                             value="{{ old('email') }}" required autocomplete="username"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-500 text-sm" />
                     </div>
 
@@ -40,7 +40,7 @@
                                 class="text-red-500">*</span></label>
                         <input id="password" type="password" placeholder="Enter your Password" name="password" required
                             autocomplete="new-password"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('password')" class="mt-1 text-red-500 text-sm" />
                     </div>
 
@@ -50,7 +50,7 @@
                             <span class="text-red-500">*</span></label>
                         <input id="password_confirmation" type="password" placeholder="Re-Enter your Password"
                             name="password_confirmation" required autocomplete="new-password"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-1 text-red-500 text-sm" />
                     </div>
 

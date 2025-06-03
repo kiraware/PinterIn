@@ -22,7 +22,7 @@
                         <label for="email" class="block text-sm font-semibold mb-1">Email</label>
                         <input id="email" type="email" placeholder="Enter your Email" name="email"
                             value="{{ old('email') }}" required autofocus autocomplete="username"
-                            class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                            class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                         <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-500 text-sm" />
                     </div>
 
@@ -32,7 +32,7 @@
                         <div class="relative">
                             <input id="password" type="password" placeholder="Enter your Password" name="password"
                                 required autocomplete="current-password"
-                                class="text-black w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
+                                class="text-black bg-white w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800" />
                             <x-input-error :messages="$errors->get('password')" class="mt-1 text-red-500 text-sm" />
                         </div>
                     </div>
