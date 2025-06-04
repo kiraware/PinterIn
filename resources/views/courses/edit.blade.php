@@ -18,6 +18,7 @@
                             <input type="text" name="title" value="{{ old('title', $course->title) }}"
                                 class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white"
                                 required>
+                            <x-input-error :messages="$errors->get('title')" class="mt-1 text-red-500 text-sm" />
                         </div>
 
                         <div class="mb-4">
@@ -25,6 +26,7 @@
                                 class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
                             <textarea name="description" rows="4"
                                 class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white" required>{{ old('description', $course->description) }}</textarea>
+                            <x-input-error :messages="$errors->get('description')" class="mt-1 text-red-500 text-sm" />
                         </div>
 
                         <div class="mb-4">
@@ -34,6 +36,7 @@
                                 value="{{ old('price', $course->price) }}"
                                 class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white"
                                 required>
+                            <x-input-error :messages="$errors->get('price')" class="mt-1 text-red-500 text-sm" />
                         </div>
 
                         <div class="mb-4">
@@ -46,11 +49,12 @@
                             @endif
                             <input type="file" name="thumbnail" accept="image/*"
                                 class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white">
+                            <x-input-error :messages="$errors->get('thumbnail')" class="mt-1 text-red-500 text-sm" />
                         </div>
 
-                        <div class="flex justify-end">
+                        <div class="flex justify-end gap-4">
                             <a href="{{ route('courses.index') }}"
-                                class="mr-4 text-sm text-gray-600 dark:text-gray-400 hover:underline">Cancel</a>
+                                class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Cancel</a>
                             <button type="submit"
                                 class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Update</button>
                         </div>

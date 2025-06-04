@@ -12,9 +12,13 @@
                     @csrf
                     @method('PUT')
                     @include('lessons._form', ['lesson' => $lesson])
-                    <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-                        Update Lesson
-                    </button>
+
+                    <div class="flex justify-end gap-4">
+                        <a href="{{ route('courses.lessons.show', [$lesson->course, $lesson]) }}"
+                            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Cancel</a>
+                        <button type="submit"
+                            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Update</button>
+                    </div>
                 </form>
             </div>
         </div>

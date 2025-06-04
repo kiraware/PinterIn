@@ -11,9 +11,13 @@
                 <form method="POST" action="{{ route('courses.lessons.store', $course) }}">
                     @csrf
                     @include('lessons._form', ['lesson' => null])
-                    <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-                        Save Lesson
-                    </button>
+
+                    <div class="flex justify-end gap-4">
+                        <a href="{{ route('courses.show', $course) }}"
+                            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Cancel</a>
+                        <button type="submit"
+                            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Create</button>
+                    </div>
                 </form>
             </div>
         </div>
