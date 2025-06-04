@@ -114,7 +114,7 @@
         </div>
     </section>
 
-    <footer class="bg-[#1B1B1B] dark:bg-gray-900 text-[#EDEDEC] dark:text-gray-200 py-8 mt-12">
+    <footer class="bg-[#1B1B1B] dark:bg-gray-900 text-[#EDEDEC] dark:text-gray-200 py-8">
         <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="flex items-center gap-2 mb-4">

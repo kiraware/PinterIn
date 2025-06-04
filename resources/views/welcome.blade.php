@@ -51,49 +51,35 @@
     <div class="pt-20"></div>
 
     <main class="w-full">
-        <section class="py-12 px-4 max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Available Courses</h2>
+        <section
+            class="py-20 px-4 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-[#F3F4F6] to-white dark:from-[#272A31] dark:to-[#101015] shadow-inner">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+                <!-- Text Section -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+                    <h1
+                        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1B1B18] dark:text-white mb-4 leading-tight">
+                        Pintar Bersama <br>
+                        <span class="text-[#D4AF37]">PinterIn</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        Belajar skill baru secara online dan fleksibel melalui kursus-kursus yang kami berikan
+                    </p>
+                    <a href="{{ route('courses.publicIndex') }}"
+                        class="inline-block px-6 py-3 bg-[#D4AF37] text-white font-semibold rounded-md shadow-md hover:bg-[#C2A02C] transition-colors duration-200 text-sm">
+                        Learn Now →
+                    </a>
+                </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ($courses as $course)
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-                        <img src="{{ route('courses.thumbnail.show', $course) }}" alt="{{ $course->title }}"
-                            class="w-full h-48 object-cover">
-
-                        <div class="p-4 space-y-2">
-                            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
-                                {{ $course->title }}
-                            </h3>
-
-                            <p class="text-gray-500 dark:text-gray-300 text-sm line-clamp-2">
-                                {{ Str::limit($course->description, 100) }}
-                            </p>
-
-                            <div
-                                class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mt-4">
-                                <span>{{ $course->lessons->count() }} Lessons</span>
-                                <span>{{ floor($course->duration / 60) }}h {{ $course->duration % 60 }}m</span>
-                                <span>{{ $course->users->count() }} Students</span>
-                            </div>
-
-                            <div class="flex items-center justify-between mt-4">
-                                <span class="text-lg font-bold text-indigo-600 dark:text-indigo-400">
-                                    ${{ number_format($course->price, 2) }}
-                                </span>
-                                <a href="{{ route('courses.show', $course) }}"
-                                    class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-500 text-sm">
-                                    View
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+                <!-- Image Section -->
+                <div class="w-full lg:w-1/2">
+                    <img src="{{ asset('images/hero-illustration.png') }}" alt="Online Learning Illustration"
+                        class="w-full h-auto max-w-md mx-auto drop-shadow-xl">
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#1B1B1B] dark:bg-gray-900 text-[#EDEDEC] dark:text-gray-200 py-8 mt-12">
+    <footer class="bg-[#1B1B1B] dark:bg-gray-900 text-[#EDEDEC] dark:text-gray-200 py-8">
         <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="flex items-center gap-2 mb-4">
