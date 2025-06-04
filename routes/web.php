@@ -20,25 +20,26 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('/dashboard/courses', [CourseController::class, 'index'])->name('courses.index');
 
     Route::middleware([Admin::class])->group(function () {
-        Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
-        Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
-        Route::get('/courses/{course}/edit', [CourseController::class, 'edit'])->name('courses.edit');
-        Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
-        Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
+        Route::get('/dashboard/courses/create', [CourseController::class, 'create'])->name('courses.create');
+        Route::post('/dashboard/courses', [CourseController::class, 'store'])->name('courses.store');
+        Route::get('/dashboard/courses/{course}/edit', [CourseController::class, 'edit'])->name('courses.edit');
+        Route::put('/dashboard/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
+        Route::delete('/dashboard/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
 
-        Route::get('/courses/{course}/lessons/create', [LessonController::class, 'create'])->name('courses.lessons.create');
-        Route::post('/courses/{course}/lessons', [LessonController::class, 'store'])->name('courses.lessons.store');
-        Route::get('/courses/{course}/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('courses.lessons.edit');
-        Route::put('/courses/{course}/lessons/{lesson}', [LessonController::class, 'update'])->name('courses.lessons.update');
+        Route::get('/dashboard/courses/{course}/lessons/create', [LessonController::class, 'create'])->name('courses.lessons.create');
+        Route::post('/dashboard/courses/{course}/lessons', [LessonController::class, 'store'])->name('courses.lessons.store');
+        Route::get('/dashboard/courses/{course}/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('courses.lessons.edit');
+        Route::put('/dashboard/courses/{course}/lessons/{lesson}', [LessonController::class, 'update'])->name('courses.lessons.update');
     });
 
-    Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
-    Route::get('/courses/{course}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
+    Route::get('/dashboard/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
+    Route::get('/dashboard/courses/{course}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
 });
 
+Route::get('/courses', [CourseController::class, 'publicIndex'])->name('courses.publicIndex');
 Route::get('/courses/{course}/thumbnail', [CourseController::class, 'showThumbnail'])->name('courses.thumbnail.show');
 
 require __DIR__.'/auth.php';
