@@ -24,6 +24,20 @@ class CourseController extends Controller
         return view('courses.index', compact('courses'));
     }
 
+    public function publicIndex()
+    {
+        $courses = Course::all();
+        $user = Auth::user();
+
+        $enrolledCourses = [];
+
+        if ($user && ! $user->is_admin) {
+            $enrolledCourses = $user->purchasedCourses->pluck('id')->toArray();
+        }
+
+        return view('courses.public', compact('courses', 'user', 'enrolledCourses'));
+    }
+
     public function show(Course $course)
     {
         return view('courses.show', compact('course'));
