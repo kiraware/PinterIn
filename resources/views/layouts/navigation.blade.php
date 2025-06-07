@@ -11,10 +11,12 @@
                 <div class="flex space-x-8">
                     <a href="#"
                         class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                    <a href="#"
-                        class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                    <a href="#"
-                        class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Courses</a>
+                    <a href="{{ route('about') }}"
+                        class="{{ request()->routeIs('about') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="{{ route('courses.index') }}"
+                        class="{{ request()->routeIs('courses.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                        Courses
+                    </a>
                 </div>
             </div>
 
@@ -82,7 +84,8 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="#" :active="request()->routeIs('dashboard')">Home</x-responsive-nav-link>
             <x-responsive-nav-link href="#">About</x-responsive-nav-link>
-            <x-responsive-nav-link href="#">Courses</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('courses.index') }}"
+                :active="request()->routeIs('course.index')">Courses</x-responsive-nav-link>
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-700">
