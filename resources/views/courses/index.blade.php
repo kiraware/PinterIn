@@ -16,7 +16,7 @@
             @if (auth()->user()->is_admin)
                 <div class="mb-4">
                     <a href="{{ route('courses.create') }}"
-                        class="inline-block bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600">
+                        class="inline-block bg-yellow-500 text-white px-4 py-2 rounded hover:bg-amber-600">
                         + Add New Course
                     </a>
                 </div>
@@ -25,7 +25,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($courses as $course)
                     <div
-                        class="relative bg-[#1B1B1B] dark:bg-gray-900 rounded-2xl hover:border hover:border-amber-500 shadow-md overflow-hidden hover:shadow-xl transition">
+                        class="relative bg-[#1B1B1B] dark:bg-gray-900 rounded-2xl hover:border hover-glow shadow-md overflow-hidden hover:shadow-xl glass-card transition">
                         <!-- Gambar -->
                         <div class="aspect-video w-full overflow-hidden rounded-t-2xl">
                             <img src="{{ route('courses.thumbnail.show', $course) }}" alt="{{ $course->title }}"
