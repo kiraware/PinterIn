@@ -86,39 +86,39 @@
             <x-responsive-nav-link href="#">About</x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('courses.index') }}"
                 :active="request()->routeIs('course.index')">Courses</x-responsive-nav-link>
-        <div class="pt-4 pb-1 border-t border-gray-700">
-            @guest
-                <div class="px-4">
-                    <a href="{{ route('login') }}"
-                        class="flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition ease-in-out duration-150">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
-                            </path>
-                        </svg>
-                        LOGIN
-                    </a>
-                </div>
-            @else
-                <div class="px-4">
-                    <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
-                </div>
+            <div class="pt-4 pb-1 border-t border-gray-700">
+                @guest
+                    <div class="px-4">
+                        <a href="{{ route('login') }}"
+                            class="flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition ease-in-out duration-150">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                </path>
+                            </svg>
+                            LOGIN
+                        </a>
+                    </div>
+                @else
+                    <div class="px-4">
+                        <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
+                    </div>
 
-                <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-responsive-nav-link>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                    <div class="mt-3 space-y-1">
+                        <x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
                         </x-responsive-nav-link>
-                    </form>
-                </div>
-            @endguest
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-responsive-nav-link>
+                        </form>
+                    </div>
+                @endguest
+            </div>
         </div>
-    </div>
 </nav>
