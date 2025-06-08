@@ -1,20 +1,29 @@
 <nav x-data="{ open: false }" class="bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
                 <a href="{{ route('dashboard') }}" class="flex flex-col items-center">
                     <img class="block h-16 w-auto" src="{{ asset('images/logo.png') }}" alt="Pinterin Logo">
                 </a>
             </div>
 
-            <div class="hidden sm:flex sm:justify-center sm:flex-grow">
+            <div class="hidden sm:flex sm:justify-center sm:grow">
                 <div class="flex space-x-8">
-                    <a href="#"
-                        class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                    <a href="#"
-                        class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                    <a href="#"
-                        class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Courses</a>
+                    <a href="{{ route('home') }}"
+                        class="{{ request()->routeIs('home') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="{{ route('about') }}"
+                        class="{{ request()->routeIs('about') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    @auth
+                        <a href="{{ route('courses.index') }}"
+                            class="{{ request()->routeIs('courses.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                            My Courses
+                        </a>
+                    @else
+                        <a href="{{ route('courses.publicIndex') }}"
+                            class="{{ request()->routeIs('courses.publicIndex') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                            Courses
+                        </a>
+                    @endauth
                 </div>
             </div>
 
@@ -80,44 +89,51 @@
 
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden bg-gray-900">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="#" :active="request()->routeIs('dashboard')">Home</x-responsive-nav-link>
-            <x-responsive-nav-link href="#">About</x-responsive-nav-link>
-            <x-responsive-nav-link href="#">Courses</x-responsive-nav-link>
-        </div>
-
-        <div class="pt-4 pb-1 border-t border-gray-700">
-            @guest
-                <div class="px-4">
-                    <a href="{{ route('login') }}"
-                        class="flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition ease-in-out duration-150">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
-                            </path>
-                        </svg>
-                        LOGIN
-                    </a>
-                </div>
+            <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">About</x-responsive-nav-link>
+            @auth
+                <x-responsive-nav-link href="{{ route('courses.index') }}" :active="request()->routeIs('courses.index')">
+                    My Courses
+                </x-responsive-nav-link>
             @else
-                <div class="px-4">
-                    <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
-                </div>
+                <x-responsive-nav-link href="{{ route('courses.publicIndex') }}" :active="request()->routeIs('courses.publicIndex')">
+                    Courses
+                </x-responsive-nav-link>
+            @endauth
 
-                <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-responsive-nav-link>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Log Out') }}
+            <div class="pt-4 pb-1 border-t border-gray-700">
+                @guest
+                    <div class="px-4">
+                        <a href="{{ route('login') }}"
+                            class="flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition ease-in-out duration-150">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                </path>
+                            </svg>
+                            LOGIN
+                        </a>
+                    </div>
+                @else
+                    <div class="px-4">
+                        <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
+                    </div>
+
+                    <div class="mt-3 space-y-1">
+                        <x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
                         </x-responsive-nav-link>
-                    </form>
-                </div>
-            @endguest
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-responsive-nav-link>
+                        </form>
+                    </div>
+                @endguest
+            </div>
         </div>
-    </div>
 </nav>

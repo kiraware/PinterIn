@@ -1,14 +1,16 @@
 <x-guest-layout>
-    <div class="min-h-screen flex items-center justify-center bg-linear-to-br from-[#272A31] to-[#101015]">
-        <div class="flex text-white overflow-hidden w-full max-w-4xl">
+    <div class="min-h-screen flex items-center justify-center bg-linear-to-br from-[#272A31] to-[#101015] px-4">
+        <div
+            class="flex flex-col md:flex-row text-white overflow-hidden w-full max-w-4xl bg-transparent md:bg-transparent rounded-lg shadow-lg">
 
             <!-- Left: Logo & Brand -->
-            <div class="w-1/2 flex flex-col items-center justify-center p-10">
-                <img src="{{ asset('images/logo 2.png') }}" alt="Pinterin Logo" class="w-[230px] mx-auto mb-4">
+            <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-6 md:p-10">
+                <img src="{{ asset('images/logo 2.png') }}" alt="Pinterin Logo"
+                    class="w-40 md:w-[230px] mx-auto mb-6 md:mb-4">
             </div>
 
             <!-- Right: Login Form -->
-            <div class="w-1/2 text-white p-10">
+            <div class="w-full md:w-1/2 text-white p-6 md:p-10">
                 <!-- Session Status -->
                 <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -40,7 +42,7 @@
                     <!-- Forgot Password -->
                     @if (Route::has('password.request'))
                         <div class="text-right mb-4">
-                            <a href="{{ route('password.request') }}" class="text-sm text-gray-500 hover:underline">
+                            <a href="{{ route('password.request') }}" class="text-sm text-gray-400 hover:underline">
                                 Forgot password?
                             </a>
                         </div>
