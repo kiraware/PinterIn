@@ -17,7 +17,7 @@
                 <div
                     class="relative bg-[#1B1B1B] dark:bg-gray-900 rounded-2xl hover:border hover:border-amber-500 shadow-md overflow-hidden hover:shadow-xl transition">
                     <!-- Gambar -->
-                    <div class="aspect-[16/9] w-full overflow-hidden rounded-t-2xl">
+                    <div class="aspect-video w-full overflow-hidden rounded-t-2xl">
                         <img src="{{ route('courses.thumbnail.show', $course) }}" alt="{{ $course->title }}"
                             class="w-full h-full object-cover">
                     </div>
