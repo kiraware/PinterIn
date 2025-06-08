@@ -1,6 +1,5 @@
 <x-guest-layout>
-    <div
-        class="relative min-h-screen flex items-center justify-center bg-linear-to-br from-[#272A31] to-[#101015] px-4">
+    <div class="relative min-h-screen flex items-center justify-center bg-linear-to-br from-[#272A31] to-[#101015] px-4">
 
         <!-- Back button -->
         <a href="{{ route('login') }}"

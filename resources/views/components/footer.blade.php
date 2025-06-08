@@ -46,14 +46,12 @@
                         <a href="{{ route('courses.index') }}" class="hover:text-yellow-500 transition-colors duration-200">
                             My Courses
                         </a>
-                    @endauth
-
-                    @guest
+                    @else
                         <a href="{{ route('courses.publicIndex') }}"
                             class="hover:text-yellow-500 transition-colors duration-200">
                             Courses
                         </a>
-                    @endguest
+                    @endauth
                 </li>
             </ul>
         </div>

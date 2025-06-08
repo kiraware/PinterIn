@@ -18,14 +18,12 @@
                             class="{{ request()->routeIs('courses.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
                             My Courses
                         </a>
-                    @endauth
-
-                    @guest
+                    @else
                         <a href="{{ route('courses.publicIndex') }}"
                             class="{{ request()->routeIs('courses.publicIndex') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
                             Courses
                         </a>
-                    @endguest
+                    @endauth
                 </div>
             </div>
 
@@ -91,10 +89,18 @@
 
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden bg-gray-900">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="#" :active="request()->routeIs('dashboard')">Home</x-responsive-nav-link>
-            <x-responsive-nav-link href="#">About</x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('courses.index') }}"
-                :active="request()->routeIs('course.index')">Courses</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">About</x-responsive-nav-link>
+            @auth
+                <x-responsive-nav-link href="{{ route('courses.index') }}" :active="request()->routeIs('courses.index')">
+                    My Courses
+                </x-responsive-nav-link>
+            @else
+                <x-responsive-nav-link href="{{ route('courses.publicIndex') }}" :active="request()->routeIs('courses.publicIndex')">
+                    Courses
+                </x-responsive-nav-link>
+            @endauth
+
             <div class="pt-4 pb-1 border-t border-gray-700">
                 @guest
                     <div class="px-4">
