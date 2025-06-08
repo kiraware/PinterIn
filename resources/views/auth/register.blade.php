@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#272A31] to-[#101015] px-4">
+    <div class="min-h-screen flex items-center justify-center bg-linear-to-br from-[#272A31] to-[#101015] px-4">
 
         <div
             class="flex flex-col md:flex-row text-white overflow-hidden w-full max-w-4xl bg-transparent md:rounded-lg shadow-lg">
