@@ -86,8 +86,6 @@
             <x-responsive-nav-link href="#">About</x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('courses.index') }}"
                 :active="request()->routeIs('course.index')">Courses</x-responsive-nav-link>
-        </div>
-
         <div class="pt-4 pb-1 border-t border-gray-700">
             @guest
                 <div class="px-4">
