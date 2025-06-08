@@ -52,7 +52,7 @@
 
     <main class="w-full">
         <section
-            class="py-20 px-4 lg:px-8 w-full mx-auto bg-gradient-to-br from-[#F3F4F6] to-white dark:from-[#272A31] dark:to-[#101015] shadow-inner">
+            class="py-20 px-4 lg:px-8 w-full mx-auto bg-linear-to-br from-[#F3F4F6] to-white dark:from-[#272A31] dark:to-[#101015] shadow-inner">
             <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
                 <!-- Text Section -->
                 <div class="w-full lg:w-1/2 text-center lg:text-left px-32">

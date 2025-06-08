@@ -1,13 +1,13 @@
 <nav x-data="{ open: false }" class="bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
                 <a href="{{ route('dashboard') }}" class="flex flex-col items-center">
                     <img class="block h-16 w-auto" src="{{ asset('images/logo.png') }}" alt="Pinterin Logo">
                 </a>
             </div>
 
-            <div class="hidden sm:flex sm:justify-center sm:flex-grow">
+            <div class="hidden sm:flex sm:justify-center sm:grow">
                 <div class="flex space-x-8">
                     <a href="#"
                         class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>

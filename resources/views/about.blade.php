@@ -6,7 +6,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-32">
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight reveal">
                     <span
-                        class="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">PinterIn</span>
+                        class="bg-linear-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">PinterIn</span>
                 </h1>
                 <p class="mt-4 md:mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300 reveal"
                     style="transition-delay: 200ms;">
