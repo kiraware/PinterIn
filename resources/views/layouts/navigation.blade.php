@@ -10,7 +10,7 @@
             <div class="hidden sm:flex sm:justify-center sm:grow">
                 <div class="flex space-x-8">
                     <a href="{{ route('home') }}"
-                        class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        class="{{ request()->routeIs('home') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
                     <a href="{{ route('about') }}"
                         class="{{ request()->routeIs('about') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
                     @auth

@@ -17,39 +17,18 @@
 </head>
 
 <body class="bg-white dark:bg-gray-950 text-[#1b1b18] dark:text-white min-h-screen">
-    <header
-        class="w-full h-20 flex items-center justify-between px-4 lg:px-8 bg-[#1B1B1B] dark:bg-gray-900 text-[#EDEDEC] dark:text-gray-100 fixed top-0 left-0 z-50 shadow-md">
-        <div class="flex items-center gap-2">
-            <img src="{{ asset('images/logo.png') }}" alt="Pinterin Logo" class="h-16 w-auto object-contain">
-        </div>
+    @include('layouts.navigation')
 
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="{{ route('home') }}" class="hover:text-[#D4AF37] transition-colors duration-200">Home</a>
-            <a href="{{ route('about') }}" class="hover:text-[#D4AF37] transition-colors duration-200">About</a>
-            <a href="{{ route('courses.publicIndex') }}"
-                class="hover:text-[#D4AF37] transition-colors duration-200">Courses</a>
-        </nav>
+    <!-- Page Heading -->
+    @isset($header)
+        <header class="bg-white dark:bg-gray-800 shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+    @endisset
 
-        <div class="flex items-center">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
-                        <a href="{{ url('/dashboard') }}"
-                            class="inline-block px-6 py-2 bg-[#D4AF37] text-[#1B1B1B] font-semibold rounded-md shadow-md hover:bg-[#C2A02C] transition-colors duration-200 text-sm leading-normal">
-                            Dashboard
-                        </a>
-                    @else
-                        <a href="{{ route('login') }}"
-                            class="inline-flex items-center justify-center gap-2 px-6 py-2 bg-[#D4AF37] text-white font-semibold rounded-md shadow-md hover:bg-[#C2A02C] transition-colors duration-200 text-sm leading-normal">
-                            LOGIN
-                        </a>
-                    @endauth
-                </nav>
-            @endif
-        </div>
-    </header>
-
-    <section class="py-12 px-4 max-w-7xl mx-auto">
+    <main class="py-12 px-4 max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">All Courses</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -113,7 +92,7 @@
                 </div>
             @endforeach
         </div>
-    </section>
+    </main>
 
     <footer class="bg-[#1B1B1B] dark:bg-gray-900 text-[#EDEDEC] dark:text-gray-200 py-8">
         <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
