@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>PinterIn</title>
-
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
-</head>
-
-<body class="bg-white dark:bg-gray-950 text-[#1b1b18] dark:text-white min-h-screen">
+<x-guest-layout>
     @include('layouts.navigation')
 
     <!-- Page Heading -->
@@ -30,10 +12,10 @@
 
     <main class="w-full">
         <section
-            class="py-20 px-4 lg:px-8 w-full mx-auto bg-linear-to-br from-[#F3F4F6] to-white dark:from-[#272A31] dark:to-[#101015] shadow-inner">
-            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+            class="py-16 px-4 sm:px-6 lg:px-8 w-full mx-auto bg-gradient-to-br from-[#F3F4F6] to-white dark:from-[#272A31] dark:to-[#101015] shadow-inner">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
                 <!-- Text Section -->
-                <div class="w-full lg:w-1/2 text-center lg:text-left px-32">
+                <div class="w-full lg:w-1/2 text-center lg:text-left px-4 sm:px-8 lg:px-12">
                     <h1
                         class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1B1B18] dark:text-white mb-4 leading-tight">
                         Pintar Bersama <br>
@@ -51,13 +33,12 @@
                 <!-- Image Section -->
                 <div class="w-full lg:w-1/2">
                     <img src="{{ asset('images/hero-illustration.png') }}" alt="Online Learning Illustration"
-                        class="w-full h-auto max-w-md mx-auto drop-shadow-xl">
+                        class="w-full h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto drop-shadow-xl">
                 </div>
             </div>
         </section>
     </main>
 
     <x-footer />
-</body>
 
-</html>
+</x-guest-layout>
