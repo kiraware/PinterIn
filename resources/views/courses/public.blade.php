@@ -25,7 +25,7 @@
 
         <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="{{ route('home') }}" class="hover:text-[#D4AF37] transition-colors duration-200">Home</a>
-            <a href="#" class="hover:text-[#D4AF37] transition-colors duration-200">About</a>
+            <a href="{{ route('about') }}" class="hover:text-[#D4AF37] transition-colors duration-200">About</a>
             <a href="{{ route('courses.publicIndex') }}"
                 class="hover:text-[#D4AF37] transition-colors duration-200">Courses</a>
         </nav>
@@ -147,7 +147,8 @@
                 <ul class="space-y-2 text-gray-400 dark:text-gray-300 text-sm">
                     <li><a href="{{ route('home') }}"
                             class="hover:text-[#D4AF37] transition-colors duration-200">Home</a></li>
-                    <li><a href="#" class="hover:text-[#D4AF37] transition-colors duration-200">About Us</a></li>
+                    <li><a href="{{ route('about') }}"
+                            class="hover:text-[#D4AF37] transition-colors duration-200">About Us</a></li>
                     <li><a href="{{ route('courses.publicIndex') }}"
                             class="hover:text-[#D4AF37] transition-colors duration-200">Courses</a></li>
                 </ul>

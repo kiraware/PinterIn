@@ -39,9 +39,22 @@
                 {{-- Pastikan nama route sudah sesuai --}}
                 <li><a href="{{ route('home') }}" class="hover:text-yellow-500 transition-colors duration-200">Home</a>
                 </li>
-                <li><a href="#" class="hover:text-yellow-500 transition-colors duration-200">About Us</a></li>
-                <li><a href="{{ route('courses.index') }}"
-                        class="hover:text-yellow-500 transition-colors duration-200">Courses</a></li>
+                <li><a href="{{ route('about') }}" class="hover:text-yellow-500 transition-colors duration-200">About
+                        Us</a></li>
+                <li>
+                    @auth
+                        <a href="{{ route('courses.index') }}" class="hover:text-yellow-500 transition-colors duration-200">
+                            My Courses
+                        </a>
+                    @endauth
+
+                    @guest
+                        <a href="{{ route('courses.publicIndex') }}"
+                            class="hover:text-yellow-500 transition-colors duration-200">
+                            Courses
+                        </a>
+                    @endguest
+                </li>
             </ul>
         </div>
 

@@ -9,14 +9,23 @@
 
             <div class="hidden sm:flex sm:justify-center sm:grow">
                 <div class="flex space-x-8">
-                    <a href="#"
+                    <a href="{{ route('home') }}"
                         class="text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
                     <a href="{{ route('about') }}"
                         class="{{ request()->routeIs('about') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                    <a href="{{ route('courses.index') }}"
-                        class="{{ request()->routeIs('courses.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
-                        Courses
-                    </a>
+                    @auth
+                        <a href="{{ route('courses.index') }}"
+                            class="{{ request()->routeIs('courses.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                            My Courses
+                        </a>
+                    @endauth
+
+                    @guest
+                        <a href="{{ route('courses.publicIndex') }}"
+                            class="{{ request()->routeIs('courses.publicIndex') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                            Courses
+                        </a>
+                    @endguest
                 </div>
             </div>
 

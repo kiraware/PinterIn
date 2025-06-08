@@ -25,7 +25,7 @@
 
         <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="{{ route('home') }}" class="hover:text-[#D4AF37] transition-colors duration-200">Home</a>
-            <a href="#" class="hover:text-[#D4AF37] transition-colors duration-200">About</a>
+            <a href="{{ route('about') }}" class="hover:text-[#D4AF37] transition-colors duration-200">About</a>
             <a href="{{ route('courses.publicIndex') }}"
                 class="hover:text-[#D4AF37] transition-colors duration-200">Courses</a>
         </nav>
@@ -80,7 +80,7 @@
         </section>
     </main>
 
-    <x-footer></x-footer>
+    <x-footer />
 </body>
 
 </html>
