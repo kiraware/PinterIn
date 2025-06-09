@@ -9,13 +9,14 @@
         </header>
     @endisset
 
-    <main class="py-12 px-4 max-w-7xl mx-auto bg-white dark:bg-gray-950 text-[#1b1b18] dark:text-white min-h-screen">
+    <main
+        class="py-12 w-full px-4 md:px-20 mx-auto bg-white dark:bg-gray-950 text-[#1b1b18] dark:text-white min-h-screen">
         <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">All Courses</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($courses as $course)
                 <div
-                    class="relative bg-[#1B1B1B] dark:bg-gray-900 rounded-2xl hover:border hover:border-amber-500 shadow-md overflow-hidden hover:shadow-xl transition">
+                    class="relative bg-[#1B1B1B] dark:bg-gray-900 rounded-2xl hover:border hover-glow shadow-md overflow-hidden hover:shadow-xl glass-card transition">
                     <!-- Gambar -->
                     <div class="aspect-video w-full overflow-hidden rounded-t-2xl">
                         <img src="{{ route('courses.thumbnail.show', $course) }}" alt="{{ $course->title }}"
@@ -63,20 +64,20 @@
                     <div class="absolute bottom-4 right-4">
                         @if (!$user)
                             <a href="{{ route('login') }}"
-                                class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
-                                Buy Now
+                                class="bg-yellow-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
+                                Buy
                             </a>
                         @elseif ($user->is_admin || in_array($course->id, $enrolledCourses))
                             <a href="{{ route('courses.show', $course) }}"
-                                class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
+                                class="bg-yellow-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
                                 View
                             </a>
                         @else
                             <form action="{{ route('courses.enroll', $course) }}" method="POST">
                                 @csrf
                                 <button type="submit"
-                                    class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
-                                    Buy Now
+                                    class="bg-yellow-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
+                                    Buy
                                 </button>
                             </form>
                         @endif
