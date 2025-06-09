@@ -73,13 +73,10 @@
                                 View
                             </a>
                         @else
-                            <form action="{{ route('courses.enroll', $course) }}" method="POST">
-                                @csrf
-                                <button type="submit"
-                                    class="bg-yellow-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
-                                    Buy
-                                </button>
-                            </form>
+                            <a href="{{ route('payments.create', $course) }}"
+                                class="bg-yellow-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-full shadow transition">
+                                Buy
+                            </a>
                         @endif
                     </div>
                 </div>

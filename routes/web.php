@@ -3,6 +3,7 @@
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
         Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
         Route::get('/courses/{course}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
+    });
+
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/courses/{course}/buy', [PaymentController::class, 'create'])->name('payments.create');
+        Route::post('/courses/{course}/buy', [PaymentController::class, 'store'])->name('payments.store');
+        Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+
+        Route::middleware([Admin::class])->group(function () {
+            Route::patch('/payments/{payment}/status', [PaymentController::class, 'updateStatus'])->name('payments.updateStatus');
+        });
     });
 
     /*

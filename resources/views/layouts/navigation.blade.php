@@ -22,6 +22,12 @@
                             class="{{ request()->routeIs('courses.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
                             My Courses
                         </a>
+
+                        <a href="{{ route('payments.index') }}"
+                            class="{{ request()->routeIs('payments.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                            Payments
+                        </a>
+
                         @if (Auth::user()->is_admin)
                             <a href="{{ route('banks.index') }}"
                                 class="{{ request()->routeIs('banks.*') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
@@ -104,6 +110,10 @@
             @auth
                 <x-responsive-nav-link href="{{ route('courses.index') }}" :active="request()->routeIs('courses.index')">
                     My Courses
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link href="{{ route('payments.index') }}" :active="request()->routeIs('payments.index')">
+                    Payments
                 </x-responsive-nav-link>
 
                 @if (Auth::user()->is_admin)
