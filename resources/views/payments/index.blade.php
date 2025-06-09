@@ -26,7 +26,7 @@
                         <td class="px-4 py-2">{{ $payment->bank->name }}</td>
                         <td class="px-4 py-2">{{ ucfirst($payment->status->value) }}</td>
                         <td class="px-4 py-2">
-                            <a href="{{ asset('storage/' . $payment->payment_proof) }}" target="_blank"
+                            <a href="{{ route('payments.payment-proof.show', $payment) }}" target="_blank"
                                 class="text-blue-500 hover:underline">View</a>
                         </td>
                         @if (auth()->user()->is_admin)

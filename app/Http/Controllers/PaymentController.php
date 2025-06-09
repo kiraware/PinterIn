@@ -8,6 +8,9 @@ use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PaymentController extends Controller
 {
@@ -29,13 +32,15 @@ class PaymentController extends Controller
 
     public function store(Request $request, Course $course)
     {
-        $request->validate([
+        $validated = $request->validate([
             'bank_id' => 'required|exists:banks,id',
             'account_number' => 'required|string',
             'payment_proof' => 'required|image|mimes:jpeg,png|max:5120',
         ]);
 
-        $path = $request->file('payment_proof')->store('payment_proofs', 'public');
+        $filename = time().'.'.$request->payment_proof->extension();
+        $request->payment_proof->storeAs('payment_proofs', $filename);
+        $validated['payment_proof'] = $filename;
 
         Payment::create([
             'user_id' => auth()->id(),
@@ -43,7 +48,7 @@ class PaymentController extends Controller
             'bank_id' => $request->bank_id,
             'amount' => $course->price,
             'account_number' => $request->account_number,
-            'payment_proof' => $path,
+            'payment_proof' => $filename,
             'status' => PaymentStatus::PENDING,
         ]);
 
@@ -71,5 +76,23 @@ class PaymentController extends Controller
         }
 
         return redirect()->route('payments.index')->with('success', 'Payment status updated.');
+    }
+
+    /**
+     * Show the payment proof.
+     */
+    public function showPaymentProof(Payment $payment): StreamedResponse
+    {
+        $path = 'payment_proofs/'.$payment->payment_proof;
+
+        if (Storage::disk('local')->exists($path)) {
+            $headers = [
+                'Content-Type' => File::mimeType(Storage::disk('local')->path($path)),
+            ];
+
+            return Storage::download($path, $payment->payment_proof, $headers);
+        }
+
+        abort(404);
     }
 }

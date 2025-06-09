@@ -45,10 +45,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/courses/{course}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
     });
 
+    // Payments
     Route::prefix('dashboard')->group(function () {
         Route::get('/courses/{course}/buy', [PaymentController::class, 'create'])->name('payments.create');
         Route::post('/courses/{course}/buy', [PaymentController::class, 'store'])->name('payments.store');
         Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+        Route::get('/payments/{payment}/payment-proof', [PaymentController::class, 'showPaymentProof'])->name('payments.payment-proof.show');
 
         Route::middleware([Admin::class])->group(function () {
             Route::patch('/payments/{payment}/status', [PaymentController::class, 'updateStatus'])->name('payments.updateStatus');
