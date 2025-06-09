@@ -9,7 +9,8 @@
         </header>
     @endisset
 
-    <main class="py-12 w-full px-20 mx-auto bg-white dark:bg-gray-950 text-[#1b1b18] dark:text-white min-h-screen">
+    <main
+        class="py-12 w-full px-4 md:px-20 mx-auto bg-white dark:bg-gray-950 text-[#1b1b18] dark:text-white min-h-screen">
         <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">All Courses</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
