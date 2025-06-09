@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ProfileController;
@@ -46,5 +47,15 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/courses', [CourseController::class, 'publicIndex'])->name('courses.publicIndex');
 Route::get('/courses/{course}/thumbnail', [CourseController::class, 'showThumbnail'])->name('courses.thumbnail.show');
+
+Route::middleware(['auth', function ($request, $next) {
+    if (! auth()->user()?->is_admin) {
+        abort(403);
+    }
+
+    return $next($request);
+}])->prefix('dashboard')->group(function () {
+    Route::resource('banks', BankController::class)->except(['show']);
+});
 
 require __DIR__.'/auth.php';
