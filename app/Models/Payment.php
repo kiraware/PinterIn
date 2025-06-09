@@ -16,7 +16,9 @@ class Payment extends Model
     protected $fillable = [
         'user_id',
         'course_id',
+        'bank_id',
         'amount',
+        'account_number',
         'status',
         'payment_proof',
     ];
@@ -42,5 +44,10 @@ class Payment extends Model
     public function course(): BelongsTo
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function bank(): BelongsTo
+    {
+        return $this->belongsTo(Bank::class);
     }
 }
