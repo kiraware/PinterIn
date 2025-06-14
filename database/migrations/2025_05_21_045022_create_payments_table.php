@@ -16,7 +16,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('course_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('bank_id')->constrained()->cascadeOnDelete();
             $table->decimal('amount', 10, 2);
+            $table->string('account_number');
             $table->enum('status', [PaymentStatus::PENDING->value, PaymentStatus::COMPLETED->value, PaymentStatus::FAILED->value])->default(PaymentStatus::PENDING->value);
             $table->string('payment_proof');
             $table->timestamps();
@@ -36,6 +38,10 @@ return new class extends Migration
 
         Schema::table('payments', function (Blueprint $table) {
             $table->dropForeign(['course_id']);
+        });
+
+        Schema::table('payments', function (Blueprint $table) {
+            $table->dropForeign(['bank_id']);
         });
 
         Schema::dropIfExists('payments');

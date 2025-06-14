@@ -10,14 +10,30 @@
             <div class="hidden sm:flex sm:justify-center sm:grow">
                 <div class="flex space-x-8">
                     <a href="{{ route('home') }}"
-                        class="{{ request()->routeIs('home') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        class="{{ request()->routeIs('home') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                        Home
+                    </a>
                     <a href="{{ route('about') }}"
-                        class="{{ request()->routeIs('about') ? 'text-yellow-500' : 'text-gray-300' }} text-gray-300 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        class="{{ request()->routeIs('about') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                        About
+                    </a>
                     @auth
                         <a href="{{ route('courses.index') }}"
                             class="{{ request()->routeIs('courses.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
                             My Courses
                         </a>
+
+                        <a href="{{ route('payments.index') }}"
+                            class="{{ request()->routeIs('payments.index') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                            Payments
+                        </a>
+
+                        @if (Auth::user()->is_admin)
+                            <a href="{{ route('banks.index') }}"
+                                class="{{ request()->routeIs('banks.*') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
+                                Bank
+                            </a>
+                        @endif
                     @else
                         <a href="{{ route('courses.publicIndex') }}"
                             class="{{ request()->routeIs('courses.publicIndex') ? 'text-yellow-500' : 'text-gray-300' }} hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium">
@@ -95,6 +111,16 @@
                 <x-responsive-nav-link href="{{ route('courses.index') }}" :active="request()->routeIs('courses.index')">
                     My Courses
                 </x-responsive-nav-link>
+
+                <x-responsive-nav-link href="{{ route('payments.index') }}" :active="request()->routeIs('payments.index')">
+                    Payments
+                </x-responsive-nav-link>
+
+                @if (Auth::user()->is_admin)
+                    <x-responsive-nav-link href="{{ route('banks.index') }}" :active="request()->routeIs('banks.*')">
+                        Bank
+                    </x-responsive-nav-link>
+                @endif
             @else
                 <x-responsive-nav-link href="{{ route('courses.publicIndex') }}" :active="request()->routeIs('courses.publicIndex')">
                     Courses
@@ -136,4 +162,5 @@
                 @endguest
             </div>
         </div>
+    </div>
 </nav>

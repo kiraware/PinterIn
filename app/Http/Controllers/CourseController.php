@@ -57,11 +57,9 @@ class CourseController extends Controller
             'thumbnail' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        if ($request->hasFile('thumbnail')) {
-            $filename = time().'.'.$request->thumbnail->extension();
-            $request->thumbnail->storeAs('thumbnails', $filename);
-            $validated['thumbnail'] = $filename;
-        }
+        $filename = time().'.'.$request->thumbnail->extension();
+        $request->thumbnail->storeAs('thumbnails', $filename);
+        $validated['thumbnail'] = $filename;
 
         Course::create($validated);
 
