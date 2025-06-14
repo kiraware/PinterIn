@@ -34,17 +34,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    /*
-    |--------------------------------------------------------------------------
-    | Course & Lesson Routes (for all authenticated users)
-    |--------------------------------------------------------------------------
-    */
-    Route::prefix('dashboard')->group(function () {
-        Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
-        Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
-        Route::get('/courses/{course}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
-    });
-
     // Payments
     Route::prefix('dashboard')->group(function () {
         Route::get('/courses/{course}/buy', [PaymentController::class, 'create'])->name('payments.create');
@@ -69,7 +58,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/courses/{course}/edit', [CourseController::class, 'edit'])->name('courses.edit');
         Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
         Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
+    });
 
+    /*
+    |--------------------------------------------------------------------------
+    | Course & Lesson Routes (for all authenticated users)
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+        Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
+    });
+
+    Route::middleware([Admin::class])->prefix('dashboard')->group(function () {
         // Lessons
         Route::get('/courses/{course}/lessons/create', [LessonController::class, 'create'])->name('courses.lessons.create');
         Route::post('/courses/{course}/lessons', [LessonController::class, 'store'])->name('courses.lessons.store');
@@ -78,6 +79,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Bank
         Route::resource('banks', BankController::class)->except(['show']);
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Course & Lesson Routes (for all authenticated users)
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/courses/{course}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
     });
 });
 
