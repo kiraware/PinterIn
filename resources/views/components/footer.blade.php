@@ -42,16 +42,10 @@
                 <li><a href="{{ route('about') }}" class="hover:text-yellow-500 transition-colors duration-200">About
                         Us</a></li>
                 <li>
-                    @auth
-                        <a href="{{ route('courses.index') }}" class="hover:text-yellow-500 transition-colors duration-200">
-                            My Courses
-                        </a>
-                    @else
-                        <a href="{{ route('courses.publicIndex') }}"
-                            class="hover:text-yellow-500 transition-colors duration-200">
-                            Courses
-                        </a>
-                    @endauth
+                    <a href="{{ route('courses.publicIndex') }}"
+                        class="hover:text-yellow-500 transition-colors duration-200">
+                        Courses
+                    </a>
                 </li>
             </ul>
         </div>
