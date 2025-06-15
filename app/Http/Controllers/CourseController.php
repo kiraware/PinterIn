@@ -16,17 +16,18 @@ class CourseController extends Controller
         $user = Auth::user();
 
         if ($user->is_admin) {
-            $courses = Course::all();
-        } else {
-            $courses = $user->purchasedCourses;
-        }
+            $perPage = 6;
+            $courses = Course::latest()->paginate($perPage);
 
-        return view('courses.index', compact('courses'));
+            return view('courses.index', compact('courses'));
+        } else {
+            return redirect()->route('courses.publicIndex');
+        }
     }
 
     public function publicIndex()
     {
-        $courses = Course::all();
+        $courses = Course::latest()->paginate(6);
         $user = Auth::user();
 
         $enrolledCourses = [];
