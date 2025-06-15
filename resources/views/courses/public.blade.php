@@ -82,6 +82,9 @@
                 </div>
             @endforeach
         </div>
+        <div class="mt-8">
+            {{ $courses->links() }}
+        </div>
     </main>
 
     <x-footer />

@@ -1,3 +1,4 @@
+<!-- resources\views\courses\index.blade.php -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -83,9 +84,15 @@
                         </div>
                     </div>
                 @empty
-                    <div class="text-gray-700 dark:text-gray-300">No courses available.</div>
+                    <div class="text-gray-700 dark:text-gray-300 col-span-full">No courses available.</div>
                 @endforelse
             </div>
+
+            {{-- PERUBAHAN DI SINI: Menambahkan link navigasi paginasi --}}
+            <div class="mt-8">
+                {{ $courses->links() }}
+            </div>
+
         </div>
     </div>
 </x-app-layout>
