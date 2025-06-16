@@ -31,7 +31,7 @@
 
                         <div class="mb-4">
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Price
-                                (USD)</label>
+                                (Rp)</label>
                             <input type="number" step="0.01" name="price"
                                 value="{{ old('price', $course->price) }}"
                                 class="w-full mt-1 p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-white"

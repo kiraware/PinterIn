@@ -22,8 +22,6 @@ return new class extends Migration
             $table->enum('status', [PaymentStatus::PENDING->value, PaymentStatus::COMPLETED->value, PaymentStatus::FAILED->value])->default(PaymentStatus::PENDING->value);
             $table->string('payment_proof');
             $table->timestamps();
-
-            $table->unique(['user_id', 'course_id']);
         });
     }
 
